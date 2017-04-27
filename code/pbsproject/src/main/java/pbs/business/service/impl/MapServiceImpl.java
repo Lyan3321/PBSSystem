@@ -77,5 +77,10 @@ public class MapServiceImpl implements MapService{
 	    lo.setcLng(Double.parseDouble(lng));
 		return lo;
 	}
+	@Override
+	public List<PbsRentInfoCustom> findPbsRentInfoByGPS(
+			PbsRentInfoQueryVo pbsRentInfoQueryVo) throws Exception {
+		return pbsRentInfoMapperCustom.findPbsRentInfoByGPS(pbsRentInfoQueryVo);
+	}
 
 }

@@ -4,8 +4,8 @@
 
 	<sql id="query_rent">
 		<if test="pbsRentInfoCustom!=null">
-			<if test="pbsRentInfoCustom.id!=null and pbsRentInfoCustom.id!=''">
-				and rent.id = #{pbsRentInfoCustom.id}
+			<if test="pbsRentInfoCustom.rentId!=null and pbsRentInfoCustom.rentId!=''">
+				and rent.rent_id = #{pbsRentInfoCustom.rentId}
 			</if>
 			<if test="pbsRentInfoCustom.zoneName!=null and pbsRentInfoCustom.zoneName!=''">
 				and rent.zone_name = #{pbsRentInfoCustom.zoneName}
@@ -18,11 +18,20 @@
 			</if>
 		</if>
 	</sql>
+	
+	<sql id="query_rent_gps">
+				<!-- and rent.C_LNG BETWEEN #{gpsScope.lng_low} AND #{gpsScope.lng_high} -->
+				and rent.C_LNG BETWEEN #{gpsScope.lng_low} AND #{gpsScope.lng_high}
+		<if test="gpsScope!=null">
+				and rent.C_LAT BETWEEN #{gpsScope.lat_low} AND #{gpsScope.lat_high}
+		</if>
+	</sql>
 
 	<select id="findPbsRentInfoList" parameterType="pbs.base.pojo.vo.PbsRentInfoQueryVo" 
 	resultType="pbs.base.pojo.vo.PbsRentInfoCustom">
 	SELECT 
 	  rent.ID,
+	  rent.RENT_ID rentId,
 	  rent.ZONE_NAME zoneName,
 	  rent.ROAD,
 	  rent.RENT_NAME rentName,
@@ -48,6 +57,29 @@
 	  pbs_rent_info rent
 	<where>
 		<include refid="query_rent"></include>
+	</where>
+	</select>
+	
+	<!-- 根据定位查找附近站点 -->
+	<select id="findPbsRentInfoByGPS" parameterType="pbs.base.pojo.vo.PbsRentInfoQueryVo"
+	resultType="pbs.base.pojo.vo.PbsRentInfoCustom">
+	SELECT 
+	  rent.ID,
+	  rent.RENT_ID rentId,
+	  rent.ZONE_NAME zoneName,
+	  rent.ROAD,
+	  rent.RENT_NAME rentName,
+	  rent.RENT_POSITION rentPosition,
+	  rent.MAX_NUMBER maxNumber,
+	  rent.LAT lat,
+	  rent.LNG lng,
+	  rent.C_LAT cLat,
+	  rent.C_LNG cLng,
+	  rent.OPER_NUM operNum
+	FROM
+	  pbs_rent_info rent
+	<where>
+		<include refid="query_rent_gps"></include>
 	</where>
 	</select>
 

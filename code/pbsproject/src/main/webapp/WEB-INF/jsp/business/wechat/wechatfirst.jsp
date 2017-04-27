@@ -48,6 +48,7 @@ var longitude;
 var map;
 var walking;
 var infoWindow;
+var params;
 
 	//function jssdk() {
 	$(function(){
@@ -143,6 +144,7 @@ var infoWindow;
 		        str.push('纬度：' + data.position.getLat());
 		        latitude = data.position.getLat();
 		        longitude = data.position.getLng();
+		        params = {lng:longitude,lat:latitude};
 		        loadData();
 		        if(data.accuracy){
 		             str.push('精度：' + data.accuracy + ' 米');
@@ -186,10 +188,12 @@ var infoWindow;
 				});
 			};
 			
+			
 			function loadData(){
 				$.ajax({
-					   url : "${baseurl}querymap_result.action",
+					   url : "${baseurl}querymap_result_gps.action",
 					   type : "post",
+					   data : params,
 					   dataType : "json",
 					   success : function(data){
 						   //测试总条数   2360  测试通过

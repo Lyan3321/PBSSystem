@@ -71,4 +71,6 @@ public class RentServiceImpl implements RentService{
 		
 	}
 
+	
+
 }

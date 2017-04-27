@@ -93,7 +93,7 @@
 								<TD height=30 width="15%" align=right >自行车编码：</TD>
 								<TD class=category width="35%">
 								<div>
-								<input type="text" id="bike_bm" name="pbsBikeInfoCustom.bm"  />
+								<input type="text" id="bike_id" name="pbsBikeInfoCustom.bikeId"  />
 								</div>
 								<!-- sysuser_useridTip用于显示提示信息，提示div的id等于校验input的id+Tip -->
 								<div id="sysuser_useridTip"></div>
@@ -101,7 +101,7 @@
 								<TD height=30 width="15%" align=right >日期：</TD>
 								<TD class=category width="35%">
 								<div>
-								<input type="date" id="bike_rq" name="pbsBikeInfoCustom.rq"  />
+								<input type="date" id="bike_proDate" name="pbsBikeInfoCustom.proDate"  />
 								</div>
 								<div id="sysuser_usernameTip"></div>
 								</TD>
@@ -110,20 +110,20 @@
 								<TD height=30 width="15%" align=right >厂家：</TD>
 								<TD class=category width="35%">
 								<div>
-									<input type="text" id="bike_cj" name="pbsBikeInfoCustom.cj" />
+									<input type="text" id="bike_factory" name="pbsBikeInfoCustom.factory" />
 								</div>
 								<div id="sysuser_passwordTip"></div>
 								</TD>
 								<TD height=30 width="15%" align=right >状态：</TD>
 								<TD class=category width="35%">
 								<div>
-								<select name="pbsBikeInfoCustom.zt" id="bike_zt">
+								<select name="pbsBikeInfoCustom.state" id="bike_state">
 										<option value="">请选择</option>
-										<option value="入库">入库</option>
-										<option value="在用">在用</option>
-										<option value="故障">故障</option>
-										<option value="丢失">丢失</option>
-										<option value="报废">报废</option>
+										<option value="1">入库</option>
+										<option value="2">在用</option>
+										<option value="3">故障</option>
+										<option value="4">丢失</option>
+										<option value="5">报废</option>
 				
 								</select>
 								</div>

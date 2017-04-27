@@ -105,62 +105,122 @@ public class PbsRentInfoExample {
         }
 
         public Criteria andIdIsNull() {
-            addCriterion("ID is null");
+            addCriterion("id is null");
             return (Criteria) this;
         }
 
         public Criteria andIdIsNotNull() {
-            addCriterion("ID is not null");
+            addCriterion("id is not null");
             return (Criteria) this;
         }
 
         public Criteria andIdEqualTo(Integer value) {
-            addCriterion("ID =", value, "id");
+            addCriterion("id =", value, "id");
             return (Criteria) this;
         }
 
         public Criteria andIdNotEqualTo(Integer value) {
-            addCriterion("ID <>", value, "id");
+            addCriterion("id <>", value, "id");
             return (Criteria) this;
         }
 
         public Criteria andIdGreaterThan(Integer value) {
-            addCriterion("ID >", value, "id");
+            addCriterion("id >", value, "id");
             return (Criteria) this;
         }
 
         public Criteria andIdGreaterThanOrEqualTo(Integer value) {
-            addCriterion("ID >=", value, "id");
+            addCriterion("id >=", value, "id");
             return (Criteria) this;
         }
 
         public Criteria andIdLessThan(Integer value) {
-            addCriterion("ID <", value, "id");
+            addCriterion("id <", value, "id");
             return (Criteria) this;
         }
 
         public Criteria andIdLessThanOrEqualTo(Integer value) {
-            addCriterion("ID <=", value, "id");
+            addCriterion("id <=", value, "id");
             return (Criteria) this;
         }
 
         public Criteria andIdIn(List<Integer> values) {
-            addCriterion("ID in", values, "id");
+            addCriterion("id in", values, "id");
             return (Criteria) this;
         }
 
         public Criteria andIdNotIn(List<Integer> values) {
-            addCriterion("ID not in", values, "id");
+            addCriterion("id not in", values, "id");
             return (Criteria) this;
         }
 
         public Criteria andIdBetween(Integer value1, Integer value2) {
-            addCriterion("ID between", value1, value2, "id");
+            addCriterion("id between", value1, value2, "id");
             return (Criteria) this;
         }
 
         public Criteria andIdNotBetween(Integer value1, Integer value2) {
-            addCriterion("ID not between", value1, value2, "id");
+            addCriterion("id not between", value1, value2, "id");
+            return (Criteria) this;
+        }
+
+        public Criteria andRentIdIsNull() {
+            addCriterion("RENT_ID is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andRentIdIsNotNull() {
+            addCriterion("RENT_ID is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andRentIdEqualTo(Integer value) {
+            addCriterion("RENT_ID =", value, "rentId");
+            return (Criteria) this;
+        }
+
+        public Criteria andRentIdNotEqualTo(Integer value) {
+            addCriterion("RENT_ID <>", value, "rentId");
+            return (Criteria) this;
+        }
+
+        public Criteria andRentIdGreaterThan(Integer value) {
+            addCriterion("RENT_ID >", value, "rentId");
+            return (Criteria) this;
+        }
+
+        public Criteria andRentIdGreaterThanOrEqualTo(Integer value) {
+            addCriterion("RENT_ID >=", value, "rentId");
+            return (Criteria) this;
+        }
+
+        public Criteria andRentIdLessThan(Integer value) {
+            addCriterion("RENT_ID <", value, "rentId");
+            return (Criteria) this;
+        }
+
+        public Criteria andRentIdLessThanOrEqualTo(Integer value) {
+            addCriterion("RENT_ID <=", value, "rentId");
+            return (Criteria) this;
+        }
+
+        public Criteria andRentIdIn(List<Integer> values) {
+            addCriterion("RENT_ID in", values, "rentId");
+            return (Criteria) this;
+        }
+
+        public Criteria andRentIdNotIn(List<Integer> values) {
+            addCriterion("RENT_ID not in", values, "rentId");
+            return (Criteria) this;
+        }
+
+        public Criteria andRentIdBetween(Integer value1, Integer value2) {
+            addCriterion("RENT_ID between", value1, value2, "rentId");
+            return (Criteria) this;
+        }
+
+        public Criteria andRentIdNotBetween(Integer value1, Integer value2) {
+            addCriterion("RENT_ID not between", value1, value2, "rentId");
             return (Criteria) this;
         }
 

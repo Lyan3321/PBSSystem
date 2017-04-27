@@ -32,7 +32,7 @@
    //新建地图 
         var map = new AMap.Map('container',{
         	resizeEnable: true,
-        	center: [120.161,30.2523],//地图中心点
+        	center: [120.3458,30.31276],//地图中心点
         	zoom:15
         	});
    
@@ -41,6 +41,7 @@
 			   type : "post",
 			   dataType : "json",
 			   success : function(data){
+				   console.log(data);
 				   //测试总条数   2360  测试通过
 				   console.log("记录总数=="+data.total);
 				   console.log("rentnamelist=="+data.rows[0].id);

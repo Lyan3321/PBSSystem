@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import pbs.base.pojo.po.PbsBikeInfo;
@@ -52,7 +53,6 @@ public class MapAction {
 		pageQuery.setStart(0);
 		pageQuery.setRows(total);
 		pbsRentInfoQueryVo.setPageQuery(pageQuery);
-		
 		//获取站点信息list
 		List<PbsRentInfoCustom> list = mapService.findPbsRentInfoList(pbsRentInfoQueryVo);
 		

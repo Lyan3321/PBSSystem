@@ -2,22 +2,24 @@ package pbs.base.pojo.po;
 
 import java.util.Date;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 public class PbsBikeInfo {
     private Long id;
 
-    private String bm;
+    private String bikeId;
 
-    private String rq;
+    private String proDate;
 
-    private String cj;
+    private String factory;
 
-    private String zt;
+    private Integer state;
 
-    private String dt;
+    private Integer dynamicState;
 
-    private Integer zd;
+    private Integer rentId;
 
-    private Integer cz;
+    private Integer nodeId;
 
     public Long getId() {
         return id;
@@ -27,59 +29,59 @@ public class PbsBikeInfo {
         this.id = id;
     }
 
-    public String getBm() {
-        return bm;
+    public String getBikeId() {
+        return bikeId;
     }
 
-    public void setBm(String bm) {
-        this.bm = bm == null ? null : bm.trim();
+    public void setBikeId(String bikeId) {
+        this.bikeId = bikeId == null ? null : bikeId.trim();
     }
 
-    public String getRq() {
-        return rq;
+    public String getProDate() {
+        return proDate;
     }
 
-    public void setRq(String rq) {
-        this.rq = rq;
+    public void setProDate(String proDate) {
+        this.proDate = proDate;
     }
 
-    public String getCj() {
-        return cj;
+    public String getFactory() {
+        return factory;
     }
 
-    public void setCj(String cj) {
-        this.cj = cj == null ? null : cj.trim();
+    public void setFactory(String factory) {
+        this.factory = factory == null ? null : factory.trim();
     }
 
-    public String getZt() {
-        return zt;
+    public Integer getState() {
+        return state;
     }
 
-    public void setZt(String zt) {
-        this.zt = zt == null ? null : zt.trim();
+    public void setState(Integer state) {
+        this.state = state;
     }
 
-    public String getDt() {
-        return dt;
+    public Integer getDynamicState() {
+        return dynamicState;
     }
 
-    public void setDt(String dt) {
-        this.dt = dt == null ? null : dt.trim();
+    public void setDynamicState(Integer dynamicState) {
+        this.dynamicState = dynamicState;
     }
 
-    public Integer getZd() {
-        return zd;
+    public Integer getRentId() {
+        return rentId;
     }
 
-    public void setZd(Integer zd) {
-        this.zd = zd;
+    public void setRentId(Integer rentId) {
+        this.rentId = rentId;
     }
 
-    public Integer getCz() {
-        return cz;
+    public Integer getNodeId() {
+        return nodeId;
     }
 
-    public void setCz(Integer cz) {
-        this.cz = cz;
+    public void setNodeId(Integer nodeId) {
+        this.nodeId = nodeId;
     }
 }

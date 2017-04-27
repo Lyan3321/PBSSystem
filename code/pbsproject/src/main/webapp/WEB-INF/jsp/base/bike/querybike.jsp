@@ -15,31 +15,57 @@
 <script type="text/javascript">
 	//datagrid列定义
 	var columns_v = [ [ {
-		field : 'bm',//对应json中的key
+		field : 'bikeId',//对应json中的key
 		title : '编号',
 		width : 250
 	}, {
-		field : 'rq',//对应json中的key
+		field : 'proDate',//对应json中的key
 		title : '日期 ',
 		width : 120
 	}, {
-		field : 'cj',//对应json中的key
+		field : 'factory',//对应json中的key
 		title : '厂家',
 		width : 120,
 	}, {
-		field : 'zt',//对应json中的key
 		title : '状态',
-		width : 120
+		field : 'state',//对应json中的key
+		width : 120,
+		formatter : function(value, row, index) {//通过此方法格式化显示内容,value表示从json中取出该单元格的值，row表示这一行的数据，是一个对象,index:行的序号
+			if(value =='1'){
+				return "入库";
+			}else if(value =='2'){
+				return "在用";
+			}else if(value =='3'){
+				return "故障";
+			}else if(value =='4'){
+				return "丢失";
+			}else if(value =='5'){
+				return "报废";
+			}
+		}
 	},{
-		field : 'dt',//对应json中的key
+		field : 'dynamicState',//对应json中的key
 		title : '动态',
-		width : 120
+		width : 120,
+		formatter : function(value, row, index) {//通过此方法格式化显示内容,value表示从json中取出该单元格的值，row表示这一行的数据，是一个对象,index:行的序号
+			if(value =='1'){
+				return "在站";
+			}else if(value =='2'){
+				return "在桩";
+			}else if(value =='3'){
+				return "借出";
+			}else if(value =='4'){
+				return "调度中";
+			}else if(value =='5'){
+				return "维护保养中";
+			}
+		}
 	},{
-		field : 'zd',//对应json中的key
+		field : 'rentId',//对应json中的key
 		title : '站点',
 		width : 120
 	},{
-		field : 'cz',//对应json中的key
+		field : 'nodeId',//对应json中的key
 		title : '车桩',
 		width : 120
 	},{
@@ -47,14 +73,14 @@
 		title : '删除',
 		width : 120,
 		formatter : function(value, row, index){
-			return "<a href=javascript:deletebike('"+row.bm+"')>删除</a>"
+			return "<a href=javascript:deletebike('"+row.bikeId+"')>删除</a>"
 		}
 	},{
 		field : 'opt2',//对应json中的key
 		title : '修改',
 		width : 120,
 		formatter : function(value, row, index){
-			return "<a href=javascript:editbike('"+row.bm+"')>修改</a>"
+			return "<a href=javascript:editbike('"+row.bikeId+"')>修改</a>"
 		}
 	}] ];
 
@@ -98,13 +124,13 @@
 	}
 	
 	//删除用户方法
-	function deletebike(bm){
+	function deletebike(bikeId){
 
 		//第一个参数是提示信息，第二个参数，取消执行的函数指针，第三个参是，确定执行的函数指针
 		_confirm('您确认删除吗？',null,function (){
 
 			//将要删除的id赋值给deleteid，deleteid在sysuserdeleteform中
-			$("#delete_bm").val(bm);
+			$("#delete_bikeId").val(bikeId);
 			//使用ajax的from提交执行删除
 			//sysuserdeleteform：form的id，userdel_callback：删除回调函数，
 			//第三个参数是url的参数
@@ -130,10 +156,10 @@
 	}
 	
 	//修改用户
-	function editbike(bm){
+	function editbike(bikeId){
 		
 		//打开修改窗口
-		createmodalwindow("修改自行车信息", 800, 250, '${baseurl}bike/editbike.action?bm='+bm);
+		createmodalwindow("修改自行车信息", 800, 250, '${baseurl}bike/editbike.action?bikeId='+bikeId);
 	}
 </script>
 
@@ -147,20 +173,28 @@
 		<TBODY>
 			<TR>
 				<TD class="left">自行车编码：</td>
-				<td><INPUT type="text" name="pbsBikeInfoCustom.bm" /></TD>
+				<td><INPUT type="text" name="pbsBikeInfoCustom.bikeId" /></TD>
 				<TD class="left">自行车厂家：</TD>
-				<td><INPUT type="text" name="pbsBikeInfoCustom.cj" /></TD>
+				<td><INPUT type="text" name="pbsBikeInfoCustom.factory" /></TD>
 
 				<TD class="left">自行车动态：</TD>
-				<td><INPUT type="text" name="pbsBikeInfoCustom.dt" /></TD>
-				<TD class="left">自行车状态：</TD>
-				<td><select name="pbsBikeInfoCustom.zt">
+				<td><select name="pbsBikeInfoCustom.dynamicState">
 						<option value="">请选择</option>
-						<option value="入库">入库</option>
-						<option value="在用">在用</option>
-						<option value="故障">故障</option>
-						<option value="丢失">丢失</option>
-						<option value="报废">报废</option>
+						<option value="1">在站</option>
+						<option value="2">在桩</option>
+						<option value="3">借出</option>
+						<option value="4">调度中</option>
+						<option value="5">维修保养中</option>
+
+				</select></TD>
+				<TD class="left">自行车状态：</TD>
+				<td><select name="pbsBikeInfoCustom.state">
+						<option value="">请选择</option>
+						<option value="1">入库</option>
+						<option value="2">在用</option>
+						<option value="3">故障</option>
+						<option value="4">丢失</option>
+						<option value="5">报废</option>
 
 				</select></TD>
 				<td><a id="btn" href="#" onclick="querybike()"
@@ -183,7 +217,7 @@
 	</TABLE>
 </form>
 <form id="sysuserdeleteform" action="${baseurl}bike/deletebike.action" method="post">
-  <input type="hidden" id="delete_bm" name="bm" />
+  <input type="hidden" id="delete_bikeId" name="bikeId" />
 </form>
 </body>
 </html>

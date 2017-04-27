@@ -18,4 +18,7 @@ public interface MapService {
 	
 	//将gps坐标转换为高德地图坐标
 	public Locations convertLocations(String lat,String lng) throws Exception;
+	
+	//根据定位查询站点
+	public List<PbsRentInfoCustom> findPbsRentInfoByGPS (PbsRentInfoQueryVo pbsRentInfoQueryVo)throws Exception;
 }

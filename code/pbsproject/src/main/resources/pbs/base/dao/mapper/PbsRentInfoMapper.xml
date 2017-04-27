@@ -2,7 +2,8 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="pbs.base.dao.mapper.PbsRentInfoMapper" >
   <resultMap id="BaseResultMap" type="pbs.base.pojo.po.PbsRentInfo" >
-    <id column="ID" property="id" jdbcType="INTEGER" />
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="RENT_ID" property="rentId" jdbcType="INTEGER" />
     <result column="ZONE_NAME" property="zoneName" jdbcType="VARCHAR" />
     <result column="ROAD" property="road" jdbcType="VARCHAR" />
     <result column="RENT_NAME" property="rentName" jdbcType="VARCHAR" />
@@ -78,7 +79,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    ID, ZONE_NAME, ROAD, RENT_NAME, RENT_POSITION, MAX_NUMBER, LAT, LNG, LEFT_OR_RIGHT, 
+    id, RENT_ID, ZONE_NAME, ROAD, RENT_NAME, RENT_POSITION, MAX_NUMBER, LAT, LNG, LEFT_OR_RIGHT, 
     RENT_RANK, AREA_ID, TOP_LIMIT, LOW_LIMIT, C_LAT, C_LNG, OPER_NUM
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="pbs.base.pojo.po.PbsRentInfoExample" >
@@ -99,11 +100,11 @@
     select 
     <include refid="Base_Column_List" />
     from pbs_rent_info
-    where ID = #{id,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from pbs_rent_info
-    where ID = #{id,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
   </delete>
   <delete id="deleteByExample" parameterType="pbs.base.pojo.po.PbsRentInfoExample" >
     delete from pbs_rent_info
@@ -112,24 +113,27 @@
     </if>
   </delete>
   <insert id="insert" parameterType="pbs.base.pojo.po.PbsRentInfo" >
-    insert into pbs_rent_info (ID, ZONE_NAME, ROAD, 
-      RENT_NAME, RENT_POSITION, MAX_NUMBER, 
-      LAT, LNG, LEFT_OR_RIGHT, 
-      RENT_RANK, AREA_ID, TOP_LIMIT, 
-      LOW_LIMIT, C_LAT, C_LNG, OPER_NUM
-      )
-    values (#{id,jdbcType=INTEGER}, #{zoneName,jdbcType=VARCHAR}, #{road,jdbcType=VARCHAR}, 
-      #{rentName,jdbcType=VARCHAR}, #{rentPosition,jdbcType=VARCHAR}, #{maxNumber,jdbcType=INTEGER}, 
-      #{lat,jdbcType=DOUBLE}, #{lng,jdbcType=DOUBLE}, #{leftOrRight,jdbcType=VARCHAR}, 
-      #{rentRank,jdbcType=INTEGER}, #{areaId,jdbcType=INTEGER}, #{topLimit,jdbcType=REAL}, 
-      #{lowLimit,jdbcType=REAL}, #{cLat,jdbcType=DOUBLE}, #{cLng,jdbcType=DOUBLE}, #{operNum,jdbcType=INTEGER}
-      )
+    insert into pbs_rent_info (id, RENT_ID, ZONE_NAME, 
+      ROAD, RENT_NAME, RENT_POSITION, 
+      MAX_NUMBER, LAT, LNG, 
+      LEFT_OR_RIGHT, RENT_RANK, AREA_ID, 
+      TOP_LIMIT, LOW_LIMIT, C_LAT, 
+      C_LNG, OPER_NUM)
+    values (#{id,jdbcType=INTEGER}, #{rentId,jdbcType=INTEGER}, #{zoneName,jdbcType=VARCHAR}, 
+      #{road,jdbcType=VARCHAR}, #{rentName,jdbcType=VARCHAR}, #{rentPosition,jdbcType=VARCHAR}, 
+      #{maxNumber,jdbcType=INTEGER}, #{lat,jdbcType=DOUBLE}, #{lng,jdbcType=DOUBLE}, 
+      #{leftOrRight,jdbcType=VARCHAR}, #{rentRank,jdbcType=INTEGER}, #{areaId,jdbcType=INTEGER}, 
+      #{topLimit,jdbcType=REAL}, #{lowLimit,jdbcType=REAL}, #{cLat,jdbcType=DOUBLE}, 
+      #{cLng,jdbcType=DOUBLE}, #{operNum,jdbcType=INTEGER})
   </insert>
   <insert id="insertSelective" parameterType="pbs.base.pojo.po.PbsRentInfo" >
     insert into pbs_rent_info
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
-        ID,
+        id,
+      </if>
+      <if test="rentId != null" >
+        RENT_ID,
       </if>
       <if test="zoneName != null" >
         ZONE_NAME,
@@ -180,6 +184,9 @@
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="id != null" >
         #{id,jdbcType=INTEGER},
+      </if>
+      <if test="rentId != null" >
+        #{rentId,jdbcType=INTEGER},
       </if>
       <if test="zoneName != null" >
         #{zoneName,jdbcType=VARCHAR},
@@ -238,7 +245,10 @@
     update pbs_rent_info
     <set >
       <if test="record.id != null" >
-        ID = #{record.id,jdbcType=INTEGER},
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.rentId != null" >
+        RENT_ID = #{record.rentId,jdbcType=INTEGER},
       </if>
       <if test="record.zoneName != null" >
         ZONE_NAME = #{record.zoneName,jdbcType=VARCHAR},
@@ -292,7 +302,8 @@
   </update>
   <update id="updateByExample" parameterType="map" >
     update pbs_rent_info
-    set ID = #{record.id,jdbcType=INTEGER},
+    set id = #{record.id,jdbcType=INTEGER},
+      RENT_ID = #{record.rentId,jdbcType=INTEGER},
       ZONE_NAME = #{record.zoneName,jdbcType=VARCHAR},
       ROAD = #{record.road,jdbcType=VARCHAR},
       RENT_NAME = #{record.rentName,jdbcType=VARCHAR},
@@ -315,6 +326,9 @@
   <update id="updateByPrimaryKeySelective" parameterType="pbs.base.pojo.po.PbsRentInfo" >
     update pbs_rent_info
     <set >
+      <if test="rentId != null" >
+        RENT_ID = #{rentId,jdbcType=INTEGER},
+      </if>
       <if test="zoneName != null" >
         ZONE_NAME = #{zoneName,jdbcType=VARCHAR},
       </if>
@@ -361,11 +375,12 @@
         OPER_NUM = #{operNum,jdbcType=INTEGER},
       </if>
     </set>
-    where ID = #{id,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="pbs.base.pojo.po.PbsRentInfo" >
     update pbs_rent_info
-    set ZONE_NAME = #{zoneName,jdbcType=VARCHAR},
+    set RENT_ID = #{rentId,jdbcType=INTEGER},
+      ZONE_NAME = #{zoneName,jdbcType=VARCHAR},
       ROAD = #{road,jdbcType=VARCHAR},
       RENT_NAME = #{rentName,jdbcType=VARCHAR},
       RENT_POSITION = #{rentPosition,jdbcType=VARCHAR},
@@ -380,6 +395,6 @@
       C_LAT = #{cLat,jdbcType=DOUBLE},
       C_LNG = #{cLng,jdbcType=DOUBLE},
       OPER_NUM = #{operNum,jdbcType=INTEGER}
-    where ID = #{id,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

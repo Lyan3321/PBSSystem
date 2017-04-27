@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import pbs.base.pojo.po.PbsOrderInfo;
+import pbs.base.pojo.vo.GPSScope;
 import pbs.base.pojo.vo.PageQuery;
 import pbs.base.pojo.vo.PbsRentInfoCustom;
 import pbs.base.pojo.vo.PbsRentInfoQueryVo;
@@ -182,15 +183,45 @@ public class WechatAction {
 		return orderResult;
 	}
 	
-//	@RequestMapping("/queryorder_result")
-//	public @ResponseBody String queryOrder_result(
-//			@RequestParam(value="openid",required=true) String openid)throws Exception{
-//		List<PbsOrderInfo> list = orderService.findPbsOrderInfoByOpenid(openid);
-//		System.out.println(list);
-//		OrderResult orderResult = new OrderResult();
-//		orderResult.setRows(list);
-//		return "a";
-//	}
+	@RequestMapping("/querymap_result_gps")
+	public @ResponseBody DataGridResultInfo queryMap_result_gps(
+			PbsRentInfoQueryVo pbsRentInfoQueryVo,
+			Double lng,
+			Double lat
+			)throws Exception{
+
+		//非空校验
+		pbsRentInfoQueryVo = pbsRentInfoQueryVo!=null?pbsRentInfoQueryVo:new PbsRentInfoQueryVo();
+		
+		//获取定位精度
+		String para = ResourcesUtil.getValue("wechat", "gpsscope");
+		Double para_scope = Double.valueOf(para);
+		//获取定位范围
+		GPSScope gpsScope = new GPSScope();
+		gpsScope.setLat(lat);
+		gpsScope.setLng(lng);
+		gpsScope.setLat_high(lat+para_scope);
+		gpsScope.setLat_low(lat-para_scope);
+		gpsScope.setLng_high(lng+para_scope);
+		gpsScope.setLng_low(lng-para_scope);
+		
+		pbsRentInfoQueryVo.setGpsScope(gpsScope);
+		//获取站点信息list
+		List<PbsRentInfoCustom> list = mapService.findPbsRentInfoByGPS(pbsRentInfoQueryVo);
+		
+		//新建DataGridResultInfo数据存储查询信息
+		DataGridResultInfo dataGridResultInfo = new DataGridResultInfo();
+		
+		//设置总条数进入dataGridResultInfo
+		dataGridResultInfo.setTotal(list.size());
+		
+		//设置结果集进入Row
+		dataGridResultInfo.setRows(list);
+		
+		//System.out.println(dataGridResultInfo.getTotal());
+		//返回
+		return dataGridResultInfo;
+	}
 	
 	//网页授权，得到用户的openid
 	@RequestMapping("/authorize")

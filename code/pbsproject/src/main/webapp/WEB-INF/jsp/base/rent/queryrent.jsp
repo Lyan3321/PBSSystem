@@ -15,7 +15,7 @@
 <script type="text/javascript">
 	//datagrid列定义
 	var columns_v = [ [ {
-		field : 'id',//对应json中的key
+		field : 'rentId',//对应json中的key
 		title : '站点编号',
 		width : 120
 	}, {
@@ -51,14 +51,14 @@
 		title : '删除',
 		width : 120,
 		formatter : function(value, row, index){
-			return "<a href=javascript:deleterent('"+row.id+"')>删除</a>"
+			return "<a href=javascript:deleterent('"+row.rentId+"')>删除</a>"
 		}
 	},{
 		field : 'opt2',//对应json中的key
 		title : '修改',
 		width : 120,
 		formatter : function(value, row, index){
-			return "<a href=javascript:editrent('"+row.id+"')>修改</a>"
+			return "<a href=javascript:editrent('"+row.rentId+"')>修改</a>"
 		}
 	}] ];
 
@@ -134,7 +134,7 @@
 	}
 	
 	//修改用户
-	function editrent(id){
+	function editrent(rentId){
 		
 		//打开修改窗口
 		createmodalwindow("修改站点信息", 800, 250, '${baseurl}rent/editrent.action?id='+id);
@@ -151,7 +151,7 @@
 		<TBODY>
 			<TR>
 				<TD class="left">站点编号：</td>
-				<td><INPUT type="text" name="pbsRentInfoCustom.id" /></TD>
+				<td><INPUT type="text" name="pbsRentInfoCustom.rentId" /></TD>
 				<TD class="left">所属区域：</TD>
 				<td><INPUT type="text" name="pbsRentInfoCustom.zoneName" /></TD>
 
@@ -179,7 +179,7 @@
 	</TABLE>
 </form>
 <form id="rentdeleteform" action="${baseurl}rent/deleterent.action" method="post">
-  <input type="hidden" id="delete_id" name="id" />
+  <input type="hidden" id="delete_Id" name="Id" />
 </form>
 </body>
 </html>

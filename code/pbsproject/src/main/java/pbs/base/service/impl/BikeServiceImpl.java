@@ -31,11 +31,11 @@ public class BikeServiceImpl implements BikeService {
 		return pbsBikeInfoMapperCustom.findPbsBikeInfoList(pbsBikeInfoQueryVo);
 	}
 
-	public PbsBikeInfo findPbsBikeInfoByBikebm(String bm) throws Exception {
+	public PbsBikeInfo findPbsBikeInfoByBikebm(String bikeId) throws Exception {
 		PbsBikeInfoExample pbsBikeInfoExample = new PbsBikeInfoExample();
 		PbsBikeInfoExample.Criteria criteria = pbsBikeInfoExample.createCriteria();
 		//设置查询条件
-		criteria.andBmEqualTo(bm);
+		criteria.andBikeIdEqualTo(bikeId);
 		List<PbsBikeInfo> list = pbsBikeInfoMapper.selectByExample(pbsBikeInfoExample);
 		
 		if(list != null && list.size() == 1){
@@ -53,7 +53,7 @@ public class BikeServiceImpl implements BikeService {
 	@Override
 	public void insertPbsBikeInfo(PbsBikeInfoCustom pbsBikeInfoCustom)
 			throws Exception {
-		PbsBikeInfo pbsBikeInfo = this.findPbsBikeInfoByBikebm(pbsBikeInfoCustom.getBm());
+		PbsBikeInfo pbsBikeInfo = this.findPbsBikeInfoByBikebm(pbsBikeInfoCustom.getBikeId());
 
 		if(pbsBikeInfo!=null){
 			//throw new Exception("编码重复");
@@ -69,9 +69,9 @@ public class BikeServiceImpl implements BikeService {
 	}
 
 	@Override
-	public void deletPbsBikeInfo(String bm) throws Exception {
+	public void deletPbsBikeInfo(String bikeId) throws Exception {
 
-		PbsBikeInfo pbsBikeInfo = this.findPbsBikeInfoByBikebm(bm);
+		PbsBikeInfo pbsBikeInfo = this.findPbsBikeInfoByBikebm(bikeId);
 		if(pbsBikeInfo==null){
 			
 			ResultUtil.throwExcepion(ResultUtil.createFail(Config.MESSAGE, 212, null));
@@ -83,18 +83,18 @@ public class BikeServiceImpl implements BikeService {
 	@Override
 	public void updatePbsBikeInfo(PbsBikeInfoCustom pbsBikeInfoCustom)
 			throws Exception {
-		PbsBikeInfo pbsBikeInfo = this.findPbsBikeInfoByBikebm(pbsBikeInfoCustom.getBm());	
+		PbsBikeInfo pbsBikeInfo = this.findPbsBikeInfoByBikebm(pbsBikeInfoCustom.getBikeId());	
 		if(pbsBikeInfo==null){
 			ResultUtil.throwExcepion(ResultUtil.createFail(Config.MESSAGE, 212, null));
 		}
 		//pbsBikeInfo.setId(pbsBikeInfoCustom.getId());
-		pbsBikeInfo.setBm(pbsBikeInfoCustom.getBm());
-		pbsBikeInfo.setCj(pbsBikeInfoCustom.getCj());
-		pbsBikeInfo.setRq(pbsBikeInfoCustom.getRq());
-		pbsBikeInfo.setZt(pbsBikeInfoCustom.getZt());
-		pbsBikeInfo.setDt(pbsBikeInfoCustom.getDt());
-		pbsBikeInfo.setZd(pbsBikeInfoCustom.getZd());
-		pbsBikeInfo.setCz(pbsBikeInfoCustom.getCz());
+		pbsBikeInfo.setBikeId(pbsBikeInfoCustom.getBikeId());
+		pbsBikeInfo.setFactory(pbsBikeInfoCustom.getFactory());
+		pbsBikeInfo.setProDate(pbsBikeInfoCustom.getProDate());
+		pbsBikeInfo.setState(pbsBikeInfoCustom.getState());
+		pbsBikeInfo.setDynamicState(pbsBikeInfoCustom.getDynamicState());
+		pbsBikeInfo.setRentId(pbsBikeInfoCustom.getRentId());
+		pbsBikeInfo.setNodeId(pbsBikeInfoCustom.getNodeId());
 		
 		//BeanUtils.copyProperties(pbsBikeInfoCustom, pbsBikeInfo);
 		

@@ -4,17 +4,17 @@
 
 	<sql id="query_bike">
 		<if test="pbsBikeInfoCustom!=null">
-			<if test="pbsBikeInfoCustom.bm!=null and pbsBikeInfoCustom.bm!=''">
-				and bike.BM = #{pbsBikeInfoCustom.bm}
+			<if test="pbsBikeInfoCustom.bikeId!=null and pbsBikeInfoCustom.bikeId!=''">
+				and bike.bike_id = #{pbsBikeInfoCustom.bikeId}
 			</if>
-			<if test="pbsBikeInfoCustom.cj!=null and pbsBikeInfoCustom.cj!=''">
-				and bike.cj = #{pbsBikeInfoCustom.cj}
+			<if test="pbsBikeInfoCustom.factory!=null and pbsBikeInfoCustom.factory!=''">
+				and bike.factory = #{pbsBikeInfoCustom.factory}
 			</if>
-			<if test="pbsBikeInfoCustom.zt!=null and pbsBikeInfoCustom.zt!=''">
-				and bike.zt = #{pbsBikeInfoCustom.zt}
+			<if test="pbsBikeInfoCustom.state!=null and pbsBikeInfoCustom.state!=''">
+				and bike.state = #{pbsBikeInfoCustom.state}
 			</if>
-			<if test="pbsBikeInfoCustom.dt!=null and pbsBikeInfoCustom.dt!=''">
-				and bike.dt = #{pbsBikeInfoCustom.dt}
+			<if test="pbsBikeInfoCustom.dynamicState!=null and pbsBikeInfoCustom.dynamicState!=''">
+				and bike.dynamic_state = #{pbsBikeInfoCustom.dynamicState}
 			</if>
 		</if>
 	</sql>
@@ -23,13 +23,13 @@
 	resultType="pbs.base.pojo.vo.PbsBikeInfoCustom">
 	SELECT 
 	  bike.id,
-	  bike.BM,
-	  bike.RQ,
-	  bike.CJ,
-	  bike.ZT,
-	  bike.DT,
-	  bike.ZD,
-	  bike.CZ 
+	  bike.bike_id bikeId,
+	  bike.pro_date proDate,
+	  bike.factory,
+	  bike.state,
+	  bike.dynamic_state dynamicState,
+	  bike.rent_id rentId,
+	  bike.node_id nodeId
 	FROM
 	  pbs_bike_info bike
   <where>

@@ -12,12 +12,12 @@ public interface BikeService {
 	
 	public int findPbsBikeInfoCount(PbsBikeInfoQueryVo pbsBikeInfoQueryVo) throws Exception;
 	
-	public PbsBikeInfo findPbsBikeInfoByBikebm(String bm) throws Exception;
+	public PbsBikeInfo findPbsBikeInfoByBikebm(String bikeId) throws Exception;
 	
 	public void insertPbsBikeInfo(PbsBikeInfoCustom pbsBikeInfoCustom) throws Exception;
 	
 	//删除用户
-	public void deletPbsBikeInfo(String bm) throws Exception;
+	public void deletPbsBikeInfo(String bikeId) throws Exception;
 	
 	//修改用户
 	public void updatePbsBikeInfo(PbsBikeInfoCustom pbsBikeInfoCustom) throws Exception;

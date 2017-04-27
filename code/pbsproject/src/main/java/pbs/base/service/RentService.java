@@ -19,4 +19,6 @@ public interface RentService {
 	
 	//修改站点信息
 	public void updatePbsRentInfo(PbsRentInfoCustom pbsRentInfoCustom) throws Exception;
+	
+	
 }

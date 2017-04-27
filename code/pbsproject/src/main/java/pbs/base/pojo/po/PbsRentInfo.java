@@ -3,6 +3,8 @@ package pbs.base.pojo.po;
 public class PbsRentInfo {
     private Integer id;
 
+    private Integer rentId;
+
     private String zoneName;
 
     private String road;
@@ -39,6 +41,14 @@ public class PbsRentInfo {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public Integer getRentId() {
+        return rentId;
+    }
+
+    public void setRentId(Integer rentId) {
+        this.rentId = rentId;
     }
 
     public String getZoneName() {

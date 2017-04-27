@@ -96,15 +96,15 @@ public class BikeAction {
 	}
 	
 	@RequestMapping("/deletebike")
-	public @ResponseBody SubmitResultInfo deletePbsBikeInfo(String bm) throws Exception{
-		bikeService.deletPbsBikeInfo(bm);
+	public @ResponseBody SubmitResultInfo deletePbsBikeInfo(String bikeId) throws Exception{
+		bikeService.deletPbsBikeInfo(bikeId);
 		return ResultUtil.createSubmitResult(ResultUtil.createSuccess(Config.MESSAGE, 906, null));
 	}
 	
 	@RequestMapping("/editbike")
-	public String editPbsBikeInfo(Model model,String bm)throws Exception{
+	public String editPbsBikeInfo(Model model,String bikeId)throws Exception{
 		
-		PbsBikeInfo pbsBikeInfo = bikeService.findPbsBikeInfoByBikebm(bm);
+		PbsBikeInfo pbsBikeInfo = bikeService.findPbsBikeInfoByBikebm(bikeId);
 		model.addAttribute("pbsBikeInfo", pbsBikeInfo);
 		
 		return "/base/bike/editbike";
