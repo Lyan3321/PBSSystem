@@ -3,13 +3,13 @@ package pbs.base.pojo.po;
 public class PbsNodeInfo {
     private Integer id;
 
-    private Integer zh;
+    private Integer nodeId;
 
-    private String zt;
+    private Integer state;
 
-    private String bm;
+    private String bikeId;
 
-    private Integer zd;
+    private Integer rentId;
 
     public Integer getId() {
         return id;
@@ -19,35 +19,35 @@ public class PbsNodeInfo {
         this.id = id;
     }
 
-    public Integer getZh() {
-        return zh;
+    public Integer getNodeId() {
+        return nodeId;
     }
 
-    public void setZh(Integer zh) {
-        this.zh = zh;
+    public void setNodeId(Integer nodeId) {
+        this.nodeId = nodeId;
     }
 
-    public String getZt() {
-        return zt;
+    public Integer getState() {
+        return state;
     }
 
-    public void setZt(String zt) {
-        this.zt = zt == null ? null : zt.trim();
+    public void setState(Integer state) {
+        this.state = state;
     }
 
-    public String getBm() {
-        return bm;
+    public String getBikeId() {
+        return bikeId;
     }
 
-    public void setBm(String bm) {
-        this.bm = bm == null ? null : bm.trim();
+    public void setBikeId(String bikeId) {
+        this.bikeId = bikeId == null ? null : bikeId.trim();
     }
 
-    public Integer getZd() {
-        return zd;
+    public Integer getRentId() {
+        return rentId;
     }
 
-    public void setZd(Integer zd) {
-        this.zd = zd;
+    public void setRentId(Integer rentId) {
+        this.rentId = rentId;
     }
 }

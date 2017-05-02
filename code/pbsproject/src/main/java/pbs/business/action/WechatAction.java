@@ -25,11 +25,15 @@ import pbs.base.pojo.vo.GPSScope;
 import pbs.base.pojo.vo.PageQuery;
 import pbs.base.pojo.vo.PbsRentInfoCustom;
 import pbs.base.pojo.vo.PbsRentInfoQueryVo;
+import pbs.base.process.context.Config;
 import pbs.base.process.result.DataGridResultInfo;
 import pbs.base.process.result.OrderResult;
+import pbs.base.process.result.ResultUtil;
+import pbs.base.process.result.SubmitResultInfo;
 import pbs.base.service.OrderService;
 import pbs.business.pojo.po.Locations;
 import pbs.business.service.MapService;
+import pbs.business.service.WechatService;
 import pbs.util.ResourcesUtil;
 import pbs.wechat.dispatcher.EventDispatcher;
 import pbs.wechat.dispatcher.MsgDispatcher;
@@ -48,6 +52,9 @@ public class WechatAction {
 	
 	@Autowired
 	private OrderService orderService;
+	
+	@Autowired
+	private WechatService wechatService;
 	
 	private static Logger logger = Logger.getLogger(WechatSignUtil.class);
 	
@@ -253,4 +260,26 @@ public class WechatAction {
 		return "/business/wechat/login";
 	}
 	
+	//扫描二维码的结果
+	@RequestMapping("/scanner")
+	public @ResponseBody String scanner(HttpSession session,String bikeId) throws Exception{
+		System.out.println(bikeId);
+		String openid = (String) session.getAttribute("openid");
+		System.out.println(openid);
+		int temp = wechatService.checkOpenid(openid);
+		return String.valueOf(temp);
+	}
+	
+	//注册界面
+	@RequestMapping("/register")
+	public String register(){
+		return "/business/wechat/register";
+	}
+	
+	//注册结果反馈
+	@RequestMapping("register_result")
+	public @ResponseBody SubmitResultInfo register_result(String tel) throws Exception{
+		wechatService.register(tel);
+		return ResultUtil.createSubmitResult(ResultUtil.createSuccess(Config.MESSAGE, 906, null));
+	}
 }

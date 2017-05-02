@@ -40,8 +40,8 @@ public class NodeServiceImpl implements NodeService{
 	public void insertPbsNodeInfo(PbsNodeInfoCustom pbsNodeInfoCustom)
 			throws Exception {
 		//判断桩号和站点不能为空
-		Integer zh = pbsNodeInfoCustom.getZh();
-		Integer zd = pbsNodeInfoCustom.getZd();
+		Integer zh = null;
+		Integer zd = null;
 		if(zh==null || zd==null){
 			ResultUtil.throwExcepion(ResultUtil.createFail(Config.MESSAGE, 132, null));
 		}
@@ -82,8 +82,6 @@ public class NodeServiceImpl implements NodeService{
 	public PbsNodeInfo findPbsBikeInfoByXX(Integer zh,Integer zd){
 		PbsNodeInfoExample pbsNodeInfoExample = new PbsNodeInfoExample();
 		PbsNodeInfoExample.Criteria criteria = pbsNodeInfoExample.createCriteria();
-		criteria.andZhEqualTo(zh);
-		criteria.andZdEqualTo(zd);
 		List<PbsNodeInfo> list = pbsNodeInfoMapper.selectByExample(pbsNodeInfoExample);
 		if(list!=null){
 			return list.get(0);

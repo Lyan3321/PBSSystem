@@ -90,12 +90,32 @@ var params;
 			    needResult: 1, // 默认为0，扫描结果由微信处理，1则直接返回扫描结果，
 			    scanType: ["qrCode","barCode"], // 可以指定扫二维码还是一维码，默认二者都有
 			    success: function (res) {
-			    var result = res.resultStr; // 当needResult 为 1 时，扫码返回的结果
-			    //alert(typeof result);
+			    var result = "bikeId="+res.resultStr; // 当needResult 为 1 时，扫码返回的结果
 			    //var a = "{rent:1001,node:1}";
 			    //location.href= "http://ry16704270.imwork.net/pbsproject/wechat/riding.action?message="+a;
 			    //跳转
 			    //location.href=result;
+			    $.ajax({
+					url : "${baseurl}scanner.action",
+			    	type : "get",
+			    	data : result,
+			    	dataType : 'String', 
+					success : function(data){
+						if(data==1){
+							alert("已注册");
+						}else{
+							alert("未注册");
+							var r = confirm("现在注册");
+							if(r==true){
+								location.href="${baseurl}register.action";
+							}
+						}
+												
+					},
+					error : function(data){
+						alert("失败");
+					}
+			    });
 			    $('#mes1').show();
 			    time1();
 			    $('#btn1').click(function(){
@@ -238,6 +258,10 @@ var params;
 			
 		});
 	
+		
+		function register(){
+			
+		}
 		
 		function yuyue(lng,lat){
 			//location.href="${baseurl}yuyue.action";

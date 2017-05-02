@@ -15,4 +15,6 @@
 
 <!-- 地图管理 -->
 <bean id="mapService" class="pbs.business.service.impl.MapServiceImpl"/>
+<!-- 微信管理 -->
+<bean id="wechatService" class="pbs.business.service.impl.WechatServiceImpl"/>
 </beans>

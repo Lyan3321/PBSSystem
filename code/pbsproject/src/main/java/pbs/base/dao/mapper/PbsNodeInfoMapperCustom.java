@@ -10,4 +10,6 @@ public interface PbsNodeInfoMapperCustom {
 	public List<PbsNodeInfoCustom> findPbsNodeInfoList(PbsNodeInfoQueryVo pbsNodeInfoQueryVo) throws Exception;
 	
 	public int findPbsNodeInfoCount(PbsNodeInfoQueryVo pbsNodeInfoQueryVo) throws Exception;
+	
+	public List<PbsNodeInfoCustom> findBikeInfoByRentId(PbsNodeInfoQueryVo pbsNodeInfoQueryVo) throws Exception;
 }

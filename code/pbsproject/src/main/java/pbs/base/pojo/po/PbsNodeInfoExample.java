@@ -164,263 +164,253 @@ public class PbsNodeInfoExample {
             return (Criteria) this;
         }
 
-        public Criteria andZhIsNull() {
-            addCriterion("ZH is null");
+        public Criteria andNodeIdIsNull() {
+            addCriterion("node_id is null");
             return (Criteria) this;
         }
 
-        public Criteria andZhIsNotNull() {
-            addCriterion("ZH is not null");
+        public Criteria andNodeIdIsNotNull() {
+            addCriterion("node_id is not null");
             return (Criteria) this;
         }
 
-        public Criteria andZhEqualTo(Integer value) {
-            addCriterion("ZH =", value, "zh");
+        public Criteria andNodeIdEqualTo(Integer value) {
+            addCriterion("node_id =", value, "nodeId");
             return (Criteria) this;
         }
 
-        public Criteria andZhNotEqualTo(Integer value) {
-            addCriterion("ZH <>", value, "zh");
+        public Criteria andNodeIdNotEqualTo(Integer value) {
+            addCriterion("node_id <>", value, "nodeId");
             return (Criteria) this;
         }
 
-        public Criteria andZhGreaterThan(Integer value) {
-            addCriterion("ZH >", value, "zh");
+        public Criteria andNodeIdGreaterThan(Integer value) {
+            addCriterion("node_id >", value, "nodeId");
             return (Criteria) this;
         }
 
-        public Criteria andZhGreaterThanOrEqualTo(Integer value) {
-            addCriterion("ZH >=", value, "zh");
+        public Criteria andNodeIdGreaterThanOrEqualTo(Integer value) {
+            addCriterion("node_id >=", value, "nodeId");
             return (Criteria) this;
         }
 
-        public Criteria andZhLessThan(Integer value) {
-            addCriterion("ZH <", value, "zh");
+        public Criteria andNodeIdLessThan(Integer value) {
+            addCriterion("node_id <", value, "nodeId");
             return (Criteria) this;
         }
 
-        public Criteria andZhLessThanOrEqualTo(Integer value) {
-            addCriterion("ZH <=", value, "zh");
+        public Criteria andNodeIdLessThanOrEqualTo(Integer value) {
+            addCriterion("node_id <=", value, "nodeId");
             return (Criteria) this;
         }
 
-        public Criteria andZhIn(List<Integer> values) {
-            addCriterion("ZH in", values, "zh");
+        public Criteria andNodeIdIn(List<Integer> values) {
+            addCriterion("node_id in", values, "nodeId");
             return (Criteria) this;
         }
 
-        public Criteria andZhNotIn(List<Integer> values) {
-            addCriterion("ZH not in", values, "zh");
+        public Criteria andNodeIdNotIn(List<Integer> values) {
+            addCriterion("node_id not in", values, "nodeId");
             return (Criteria) this;
         }
 
-        public Criteria andZhBetween(Integer value1, Integer value2) {
-            addCriterion("ZH between", value1, value2, "zh");
+        public Criteria andNodeIdBetween(Integer value1, Integer value2) {
+            addCriterion("node_id between", value1, value2, "nodeId");
             return (Criteria) this;
         }
 
-        public Criteria andZhNotBetween(Integer value1, Integer value2) {
-            addCriterion("ZH not between", value1, value2, "zh");
+        public Criteria andNodeIdNotBetween(Integer value1, Integer value2) {
+            addCriterion("node_id not between", value1, value2, "nodeId");
             return (Criteria) this;
         }
 
-        public Criteria andZtIsNull() {
-            addCriterion("ZT is null");
+        public Criteria andStateIsNull() {
+            addCriterion("state is null");
             return (Criteria) this;
         }
 
-        public Criteria andZtIsNotNull() {
-            addCriterion("ZT is not null");
+        public Criteria andStateIsNotNull() {
+            addCriterion("state is not null");
             return (Criteria) this;
         }
 
-        public Criteria andZtEqualTo(String value) {
-            addCriterion("ZT =", value, "zt");
+        public Criteria andStateEqualTo(Integer value) {
+            addCriterion("state =", value, "state");
             return (Criteria) this;
         }
 
-        public Criteria andZtNotEqualTo(String value) {
-            addCriterion("ZT <>", value, "zt");
+        public Criteria andStateNotEqualTo(Integer value) {
+            addCriterion("state <>", value, "state");
             return (Criteria) this;
         }
 
-        public Criteria andZtGreaterThan(String value) {
-            addCriterion("ZT >", value, "zt");
+        public Criteria andStateGreaterThan(Integer value) {
+            addCriterion("state >", value, "state");
             return (Criteria) this;
         }
 
-        public Criteria andZtGreaterThanOrEqualTo(String value) {
-            addCriterion("ZT >=", value, "zt");
+        public Criteria andStateGreaterThanOrEqualTo(Integer value) {
+            addCriterion("state >=", value, "state");
             return (Criteria) this;
         }
 
-        public Criteria andZtLessThan(String value) {
-            addCriterion("ZT <", value, "zt");
+        public Criteria andStateLessThan(Integer value) {
+            addCriterion("state <", value, "state");
             return (Criteria) this;
         }
 
-        public Criteria andZtLessThanOrEqualTo(String value) {
-            addCriterion("ZT <=", value, "zt");
+        public Criteria andStateLessThanOrEqualTo(Integer value) {
+            addCriterion("state <=", value, "state");
             return (Criteria) this;
         }
 
-        public Criteria andZtLike(String value) {
-            addCriterion("ZT like", value, "zt");
+        public Criteria andStateIn(List<Integer> values) {
+            addCriterion("state in", values, "state");
             return (Criteria) this;
         }
 
-        public Criteria andZtNotLike(String value) {
-            addCriterion("ZT not like", value, "zt");
+        public Criteria andStateNotIn(List<Integer> values) {
+            addCriterion("state not in", values, "state");
             return (Criteria) this;
         }
 
-        public Criteria andZtIn(List<String> values) {
-            addCriterion("ZT in", values, "zt");
+        public Criteria andStateBetween(Integer value1, Integer value2) {
+            addCriterion("state between", value1, value2, "state");
             return (Criteria) this;
         }
 
-        public Criteria andZtNotIn(List<String> values) {
-            addCriterion("ZT not in", values, "zt");
+        public Criteria andStateNotBetween(Integer value1, Integer value2) {
+            addCriterion("state not between", value1, value2, "state");
             return (Criteria) this;
         }
 
-        public Criteria andZtBetween(String value1, String value2) {
-            addCriterion("ZT between", value1, value2, "zt");
+        public Criteria andBikeIdIsNull() {
+            addCriterion("bike_id is null");
             return (Criteria) this;
         }
 
-        public Criteria andZtNotBetween(String value1, String value2) {
-            addCriterion("ZT not between", value1, value2, "zt");
+        public Criteria andBikeIdIsNotNull() {
+            addCriterion("bike_id is not null");
             return (Criteria) this;
         }
 
-        public Criteria andBmIsNull() {
-            addCriterion("BM is null");
+        public Criteria andBikeIdEqualTo(String value) {
+            addCriterion("bike_id =", value, "bikeId");
             return (Criteria) this;
         }
 
-        public Criteria andBmIsNotNull() {
-            addCriterion("BM is not null");
+        public Criteria andBikeIdNotEqualTo(String value) {
+            addCriterion("bike_id <>", value, "bikeId");
             return (Criteria) this;
         }
 
-        public Criteria andBmEqualTo(String value) {
-            addCriterion("BM =", value, "bm");
+        public Criteria andBikeIdGreaterThan(String value) {
+            addCriterion("bike_id >", value, "bikeId");
             return (Criteria) this;
         }
 
-        public Criteria andBmNotEqualTo(String value) {
-            addCriterion("BM <>", value, "bm");
+        public Criteria andBikeIdGreaterThanOrEqualTo(String value) {
+            addCriterion("bike_id >=", value, "bikeId");
             return (Criteria) this;
         }
 
-        public Criteria andBmGreaterThan(String value) {
-            addCriterion("BM >", value, "bm");
+        public Criteria andBikeIdLessThan(String value) {
+            addCriterion("bike_id <", value, "bikeId");
             return (Criteria) this;
         }
 
-        public Criteria andBmGreaterThanOrEqualTo(String value) {
-            addCriterion("BM >=", value, "bm");
+        public Criteria andBikeIdLessThanOrEqualTo(String value) {
+            addCriterion("bike_id <=", value, "bikeId");
             return (Criteria) this;
         }
 
-        public Criteria andBmLessThan(String value) {
-            addCriterion("BM <", value, "bm");
+        public Criteria andBikeIdLike(String value) {
+            addCriterion("bike_id like", value, "bikeId");
             return (Criteria) this;
         }
 
-        public Criteria andBmLessThanOrEqualTo(String value) {
-            addCriterion("BM <=", value, "bm");
+        public Criteria andBikeIdNotLike(String value) {
+            addCriterion("bike_id not like", value, "bikeId");
             return (Criteria) this;
         }
 
-        public Criteria andBmLike(String value) {
-            addCriterion("BM like", value, "bm");
+        public Criteria andBikeIdIn(List<String> values) {
+            addCriterion("bike_id in", values, "bikeId");
             return (Criteria) this;
         }
 
-        public Criteria andBmNotLike(String value) {
-            addCriterion("BM not like", value, "bm");
+        public Criteria andBikeIdNotIn(List<String> values) {
+            addCriterion("bike_id not in", values, "bikeId");
             return (Criteria) this;
         }
 
-        public Criteria andBmIn(List<String> values) {
-            addCriterion("BM in", values, "bm");
+        public Criteria andBikeIdBetween(String value1, String value2) {
+            addCriterion("bike_id between", value1, value2, "bikeId");
             return (Criteria) this;
         }
 
-        public Criteria andBmNotIn(List<String> values) {
-            addCriterion("BM not in", values, "bm");
+        public Criteria andBikeIdNotBetween(String value1, String value2) {
+            addCriterion("bike_id not between", value1, value2, "bikeId");
             return (Criteria) this;
         }
 
-        public Criteria andBmBetween(String value1, String value2) {
-            addCriterion("BM between", value1, value2, "bm");
+        public Criteria andRentIdIsNull() {
+            addCriterion("rent_id is null");
             return (Criteria) this;
         }
 
-        public Criteria andBmNotBetween(String value1, String value2) {
-            addCriterion("BM not between", value1, value2, "bm");
+        public Criteria andRentIdIsNotNull() {
+            addCriterion("rent_id is not null");
             return (Criteria) this;
         }
 
-        public Criteria andZdIsNull() {
-            addCriterion("ZD is null");
+        public Criteria andRentIdEqualTo(Integer value) {
+            addCriterion("rent_id =", value, "rentId");
             return (Criteria) this;
         }
 
-        public Criteria andZdIsNotNull() {
-            addCriterion("ZD is not null");
+        public Criteria andRentIdNotEqualTo(Integer value) {
+            addCriterion("rent_id <>", value, "rentId");
             return (Criteria) this;
         }
 
-        public Criteria andZdEqualTo(Integer value) {
-            addCriterion("ZD =", value, "zd");
+        public Criteria andRentIdGreaterThan(Integer value) {
+            addCriterion("rent_id >", value, "rentId");
             return (Criteria) this;
         }
 
-        public Criteria andZdNotEqualTo(Integer value) {
-            addCriterion("ZD <>", value, "zd");
+        public Criteria andRentIdGreaterThanOrEqualTo(Integer value) {
+            addCriterion("rent_id >=", value, "rentId");
             return (Criteria) this;
         }
 
-        public Criteria andZdGreaterThan(Integer value) {
-            addCriterion("ZD >", value, "zd");
+        public Criteria andRentIdLessThan(Integer value) {
+            addCriterion("rent_id <", value, "rentId");
             return (Criteria) this;
         }
 
-        public Criteria andZdGreaterThanOrEqualTo(Integer value) {
-            addCriterion("ZD >=", value, "zd");
+        public Criteria andRentIdLessThanOrEqualTo(Integer value) {
+            addCriterion("rent_id <=", value, "rentId");
             return (Criteria) this;
         }
 
-        public Criteria andZdLessThan(Integer value) {
-            addCriterion("ZD <", value, "zd");
+        public Criteria andRentIdIn(List<Integer> values) {
+            addCriterion("rent_id in", values, "rentId");
             return (Criteria) this;
         }
 
-        public Criteria andZdLessThanOrEqualTo(Integer value) {
-            addCriterion("ZD <=", value, "zd");
+        public Criteria andRentIdNotIn(List<Integer> values) {
+            addCriterion("rent_id not in", values, "rentId");
             return (Criteria) this;
         }
 
-        public Criteria andZdIn(List<Integer> values) {
-            addCriterion("ZD in", values, "zd");
+        public Criteria andRentIdBetween(Integer value1, Integer value2) {
+            addCriterion("rent_id between", value1, value2, "rentId");
             return (Criteria) this;
         }
 
-        public Criteria andZdNotIn(List<Integer> values) {
-            addCriterion("ZD not in", values, "zd");
-            return (Criteria) this;
-        }
-
-        public Criteria andZdBetween(Integer value1, Integer value2) {
-            addCriterion("ZD between", value1, value2, "zd");
-            return (Criteria) this;
-        }
-
-        public Criteria andZdNotBetween(Integer value1, Integer value2) {
-            addCriterion("ZD not between", value1, value2, "zd");
+        public Criteria andRentIdNotBetween(Integer value1, Integer value2) {
+            addCriterion("rent_id not between", value1, value2, "rentId");
             return (Criteria) this;
         }
     }

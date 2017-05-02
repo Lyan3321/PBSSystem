@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="pbs.base.dao.mapper.PbsNodeInfoMapper" >
-  <resultMap id="BaseResultMap" type="pbs.base.pojo.po.PbsNodeInfo" >
-    <id column="ID" property="id" jdbcType="INTEGER" />
-    <result column="node_id" property="nodeId" jdbcType="INTEGER" />
-    <result column="state" property="state" jdbcType="INTEGER" />
-    <result column="bike_id" property="bikeId" jdbcType="VARCHAR" />
-    <result column="rent_id" property="rentId" jdbcType="INTEGER" />
+<mapper namespace="pbs.business.dao.mapper.PbsWechatUserMapper" >
+  <resultMap id="BaseResultMap" type="pbs.business.pojo.po.PbsWechatUser" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="openid" property="openid" jdbcType="VARCHAR" />
+    <result column="money" property="money" jdbcType="REAL" />
+    <result column="order_id" property="orderId" jdbcType="INTEGER" />
+    <result column="tel" property="tel" jdbcType="VARCHAR" />
+    <result column="email" property="email" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -67,15 +68,15 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    ID, node_id, state, bike_id, rent_id
+    id, openid, money, order_id, tel, email
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="pbs.base.pojo.po.PbsNodeInfoExample" >
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="pbs.business.pojo.po.PbsWechatUserExample" >
     select
     <if test="distinct" >
       distinct
     </if>
     <include refid="Base_Column_List" />
-    from pbs_node_info
+    from pbs_wechat_user
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
@@ -86,85 +87,96 @@
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
-    from pbs_node_info
-    where ID = #{id,jdbcType=INTEGER}
+    from pbs_wechat_user
+    where id = #{id,jdbcType=INTEGER}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
-    delete from pbs_node_info
-    where ID = #{id,jdbcType=INTEGER}
+    delete from pbs_wechat_user
+    where id = #{id,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="pbs.base.pojo.po.PbsNodeInfoExample" >
-    delete from pbs_node_info
+  <delete id="deleteByExample" parameterType="pbs.business.pojo.po.PbsWechatUserExample" >
+    delete from pbs_wechat_user
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="pbs.base.pojo.po.PbsNodeInfo" >
-    insert into pbs_node_info (ID, node_id, state, 
-      bike_id, rent_id)
-    values (#{id,jdbcType=INTEGER}, #{nodeId,jdbcType=INTEGER}, #{state,jdbcType=INTEGER}, 
-      #{bikeId,jdbcType=VARCHAR}, #{rentId,jdbcType=INTEGER})
+  <insert id="insert" parameterType="pbs.business.pojo.po.PbsWechatUser" >
+    insert into pbs_wechat_user (id, openid, money, 
+      order_id, tel, email
+      )
+    values (#{id,jdbcType=INTEGER}, #{openid,jdbcType=VARCHAR}, #{money,jdbcType=REAL}, 
+      #{orderId,jdbcType=INTEGER}, #{tel,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}
+      )
   </insert>
-  <insert id="insertSelective" parameterType="pbs.base.pojo.po.PbsNodeInfo" >
-    insert into pbs_node_info
+  <insert id="insertSelective" parameterType="pbs.business.pojo.po.PbsWechatUser" >
+    insert into pbs_wechat_user
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
-        ID,
+        id,
       </if>
-      <if test="nodeId != null" >
-        node_id,
+      <if test="openid != null" >
+        openid,
       </if>
-      <if test="state != null" >
-        state,
+      <if test="money != null" >
+        money,
       </if>
-      <if test="bikeId != null" >
-        bike_id,
+      <if test="orderId != null" >
+        order_id,
       </if>
-      <if test="rentId != null" >
-        rent_id,
+      <if test="tel != null" >
+        tel,
+      </if>
+      <if test="email != null" >
+        email,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="id != null" >
         #{id,jdbcType=INTEGER},
       </if>
-      <if test="nodeId != null" >
-        #{nodeId,jdbcType=INTEGER},
+      <if test="openid != null" >
+        #{openid,jdbcType=VARCHAR},
       </if>
-      <if test="state != null" >
-        #{state,jdbcType=INTEGER},
+      <if test="money != null" >
+        #{money,jdbcType=REAL},
       </if>
-      <if test="bikeId != null" >
-        #{bikeId,jdbcType=VARCHAR},
+      <if test="orderId != null" >
+        #{orderId,jdbcType=INTEGER},
       </if>
-      <if test="rentId != null" >
-        #{rentId,jdbcType=INTEGER},
+      <if test="tel != null" >
+        #{tel,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null" >
+        #{email,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="pbs.base.pojo.po.PbsNodeInfoExample" resultType="java.lang.Integer" >
-    select count(*) from pbs_node_info
+  <select id="countByExample" parameterType="pbs.business.pojo.po.PbsWechatUserExample" resultType="java.lang.Integer" >
+    select count(*) from pbs_wechat_user
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </select>
   <update id="updateByExampleSelective" parameterType="map" >
-    update pbs_node_info
+    update pbs_wechat_user
     <set >
       <if test="record.id != null" >
-        ID = #{record.id,jdbcType=INTEGER},
+        id = #{record.id,jdbcType=INTEGER},
       </if>
-      <if test="record.nodeId != null" >
-        node_id = #{record.nodeId,jdbcType=INTEGER},
+      <if test="record.openid != null" >
+        openid = #{record.openid,jdbcType=VARCHAR},
       </if>
-      <if test="record.state != null" >
-        state = #{record.state,jdbcType=INTEGER},
+      <if test="record.money != null" >
+        money = #{record.money,jdbcType=REAL},
       </if>
-      <if test="record.bikeId != null" >
-        bike_id = #{record.bikeId,jdbcType=VARCHAR},
+      <if test="record.orderId != null" >
+        order_id = #{record.orderId,jdbcType=INTEGER},
       </if>
-      <if test="record.rentId != null" >
-        rent_id = #{record.rentId,jdbcType=INTEGER},
+      <if test="record.tel != null" >
+        tel = #{record.tel,jdbcType=VARCHAR},
+      </if>
+      <if test="record.email != null" >
+        email = #{record.email,jdbcType=VARCHAR},
       </if>
     </set>
     <if test="_parameter != null" >
@@ -172,40 +184,45 @@
     </if>
   </update>
   <update id="updateByExample" parameterType="map" >
-    update pbs_node_info
-    set ID = #{record.id,jdbcType=INTEGER},
-      node_id = #{record.nodeId,jdbcType=INTEGER},
-      state = #{record.state,jdbcType=INTEGER},
-      bike_id = #{record.bikeId,jdbcType=VARCHAR},
-      rent_id = #{record.rentId,jdbcType=INTEGER}
+    update pbs_wechat_user
+    set id = #{record.id,jdbcType=INTEGER},
+      openid = #{record.openid,jdbcType=VARCHAR},
+      money = #{record.money,jdbcType=REAL},
+      order_id = #{record.orderId,jdbcType=INTEGER},
+      tel = #{record.tel,jdbcType=VARCHAR},
+      email = #{record.email,jdbcType=VARCHAR}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="pbs.base.pojo.po.PbsNodeInfo" >
-    update pbs_node_info
+  <update id="updateByPrimaryKeySelective" parameterType="pbs.business.pojo.po.PbsWechatUser" >
+    update pbs_wechat_user
     <set >
-      <if test="nodeId != null" >
-        node_id = #{nodeId,jdbcType=INTEGER},
+      <if test="openid != null" >
+        openid = #{openid,jdbcType=VARCHAR},
       </if>
-      <if test="state != null" >
-        state = #{state,jdbcType=INTEGER},
+      <if test="money != null" >
+        money = #{money,jdbcType=REAL},
       </if>
-      <if test="bikeId != null" >
-        bike_id = #{bikeId,jdbcType=VARCHAR},
+      <if test="orderId != null" >
+        order_id = #{orderId,jdbcType=INTEGER},
       </if>
-      <if test="rentId != null" >
-        rent_id = #{rentId,jdbcType=INTEGER},
+      <if test="tel != null" >
+        tel = #{tel,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null" >
+        email = #{email,jdbcType=VARCHAR},
       </if>
     </set>
-    where ID = #{id,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="pbs.base.pojo.po.PbsNodeInfo" >
-    update pbs_node_info
-    set node_id = #{nodeId,jdbcType=INTEGER},
-      state = #{state,jdbcType=INTEGER},
-      bike_id = #{bikeId,jdbcType=VARCHAR},
-      rent_id = #{rentId,jdbcType=INTEGER}
-    where ID = #{id,jdbcType=INTEGER}
+  <update id="updateByPrimaryKey" parameterType="pbs.business.pojo.po.PbsWechatUser" >
+    update pbs_wechat_user
+    set openid = #{openid,jdbcType=VARCHAR},
+      money = #{money,jdbcType=REAL},
+      order_id = #{orderId,jdbcType=INTEGER},
+      tel = #{tel,jdbcType=VARCHAR},
+      email = #{email,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

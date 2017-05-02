@@ -44,5 +44,21 @@
 		<include refid="query_node"></include>
 	</where>
 	</select>
+	
+	<!-- 江干区 -->
+	<select id="findBikeInfoByRentId" parameterType="pbs.base.pojo.vo.PbsNodeInfoQueryVo"
+	resultType="pbs.base.pojo.vo.PbsNodeInfoCustom">
+	SELECT 
+		Node.id,
+		Node.node_id nodeId,
+		Node.state,
+		Node.bike_id bikeId,
+		Node.rent_id rentId
+	FROM
+	  pbs_Node_info Node
+	<where>
+		rent_id between 3001 and 3462
+	</where>
+	</select>
 
 </mapper>
