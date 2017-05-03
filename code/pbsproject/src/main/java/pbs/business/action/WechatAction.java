@@ -28,6 +28,7 @@ import pbs.base.pojo.vo.PbsRentInfoQueryVo;
 import pbs.base.process.context.Config;
 import pbs.base.process.result.DataGridResultInfo;
 import pbs.base.process.result.OrderResult;
+import pbs.base.process.result.ResultInfo;
 import pbs.base.process.result.ResultUtil;
 import pbs.base.process.result.SubmitResultInfo;
 import pbs.base.service.OrderService;
@@ -263,16 +264,28 @@ public class WechatAction {
 	//扫描二维码的结果
 	@RequestMapping("/scanner")
 	public @ResponseBody String scanner(HttpSession session,String bikeId) throws Exception{
+		
+		//测试Exception
+		//ResultUtil.throwExcepion(ResultUtil.createFail(Config.MESSAGE, 131, null));
+		
 		System.out.println(bikeId);
 		String openid = (String) session.getAttribute("openid");
 		System.out.println(openid);
 		int temp = wechatService.checkOpenid(openid);
-		return String.valueOf(temp);
+		if(temp == 0){//0为未注册
+			return String.valueOf(temp);
+			//return ResultUtil.createSubmitResult(ResultUtil.createFail(Config.MESSAGE, 134, null));
+		}else{
+			wechatService.updateBikeInfo(openid, bikeId);
+			//return ResultUtil.createSubmitResult(ResultUtil.createSuccess(Config.MESSAGE, 135, null));
+			return "1";
+		}
 	}
 	
 	//注册界面
 	@RequestMapping("/register")
-	public String register(){
+	public String register()throws Exception{
+		//ResultUtil.throwExcepion(ResultUtil.createFail(Config.MESSAGE, 131, null));
 		return "/business/wechat/register";
 	}
 	

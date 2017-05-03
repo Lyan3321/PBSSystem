@@ -50,6 +50,17 @@ var walking;
 var infoWindow;
 var params;
 
+	function message_alert(data){
+		var data_v = data.resultInfo;
+		var type = data_v.type;
+		var message = data_v.message;
+		if(type==0){
+			alert("error:"+message);
+		}else if(type==1){
+			alert("success:"+message);
+		}
+	}
+
 	//function jssdk() {
 	$(function(){
 		$.ajax({
@@ -102,13 +113,15 @@ var params;
 			    	dataType : 'String', 
 					success : function(data){
 						if(data==1){
-							alert("已注册");
-						}else{
+							alert("解锁完毕");
+						}else if(data==0){
 							alert("未注册");
 							var r = confirm("现在注册");
 							if(r==true){
 								location.href="${baseurl}register.action";
 							}
+						}else{
+							alert("未知错误");
 						}
 												
 					},
