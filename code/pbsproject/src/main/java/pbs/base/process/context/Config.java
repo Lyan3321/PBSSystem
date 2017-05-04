@@ -11,6 +11,12 @@ import java.util.Properties;
 public class Config {
 	
 	/**
+	 * 验证自行车入桩
+	 */
+	public static String bikeid = null;
+	public static String nodeid = null;
+	
+	/**
 	 * 存储空间
 	 */
 	public static Properties properties = new Properties();

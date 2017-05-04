@@ -274,6 +274,7 @@ public class WechatAction {
 		//ResultUtil.throwExcepion(ResultUtil.createFail(Config.MESSAGE, 131, null));
 		
 		System.out.println(bikeId);
+		//session.setAttribute("bikeid", bikeId);
 		String openid = (String) session.getAttribute("openid");
 		System.out.println(openid);
 		int temp = wechatService.checkOpenid(openid);
@@ -303,8 +304,29 @@ public class WechatAction {
 	
 	//结束骑行，自行车入桩
 	@RequestMapping("/riding_complete")
-	public @ResponseBody SubmitResultInfo ridingComplete(String bikeid,String nodeid)throws Exception{
-		wechatService.completeOrder(bikeid, Integer.valueOf(nodeid));
+	public @ResponseBody String ridingComplete(HttpSession session,String bikeid,String nodeid)throws Exception{
+		//不在一个session中
+		//session.setAttribute("bikeid", bikeid);
+		//session.setAttribute("nodeid", nodeid);
+		Config.bikeid=bikeid;
+		Config.nodeid=nodeid;
+		return "success";
+	}
+	
+	//微信端确认
+	@RequestMapping("/order_confirm")
+	public @ResponseBody SubmitResultInfo orderConfirm(HttpSession session)throws Exception{
+		if(Config.bikeid==null||Config.nodeid==null){
+			System.out.println("车未入桩");
+			return null;
+		}
+//		if(bikeid==null||bikeid==""||nodeid==null||nodeid==""){
+//			System.out.println("异常");
+//			return null;
+//		}
+		wechatService.completeOrder(Config.bikeid, Integer.valueOf(Config.nodeid));
+		Config.bikeid=null;
+		Config.nodeid=null;
 		return ResultUtil.createSubmitResult(ResultUtil.createSuccess(Config.MESSAGE, 906, null));
 	}
 }

@@ -19,10 +19,11 @@
         			url:"${baseurl}riding_complete.action",
         			type:"get",
         			data:data,
-        			dataType:"json",
+        			dataType:"String",
         			success: function(data){
-        				console.log(data);
+        				//console.log(data);
         				alert("成功");
+        				alert('${bikeid}'+'---'+'${nodeid}');
         			},
         			error: function(data){
         				alert("失败");

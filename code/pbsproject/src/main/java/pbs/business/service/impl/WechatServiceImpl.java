@@ -238,6 +238,7 @@ public class WechatServiceImpl implements WechatService{
 		PbsNodeInfo node_back = findPbsNodeInfo(nodeid);
 		int rentid = node_back.getRentId();
 		PbsRentInfo rent_back = findPbsRentInfo(rentid);
+		//有问题。。。。。。订单查询
 		PbsWechatOrder order_back = findPbsWechatOrder(orderid);
 		if(bike_back==null||node_back==null||rent_back==null||order_back==null){
 			System.out.println("异常");

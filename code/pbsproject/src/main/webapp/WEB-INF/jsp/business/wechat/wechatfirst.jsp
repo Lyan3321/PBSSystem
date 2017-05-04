@@ -132,7 +132,17 @@ var params;
 			    $('#mes1').show();
 			    time1();
 			    $('#btn1').click(function(){
-					$('#mes1').hide();			    		
+					$('#mes1').hide();
+					//alert('${bikeid}');
+					$.ajax({
+						url : "${baseurl}order_confirm.action",
+						success : function(data){
+							alert("success");
+						},
+						error : function(data){
+							alert("失败");
+						}
+					});
 			    });
 			}
 			});
