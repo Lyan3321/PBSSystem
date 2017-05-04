@@ -5,12 +5,14 @@
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="order_id" property="orderId" jdbcType="BIGINT" />
     <result column="openid" property="openid" jdbcType="VARCHAR" />
+    <result column="bike_id" property="bikeId" jdbcType="VARCHAR" />
     <result column="Start_rent" property="startRent" jdbcType="INTEGER" />
     <result column="End_rent" property="endRent" jdbcType="INTEGER" />
     <result column="Start_node" property="startNode" jdbcType="INTEGER" />
     <result column="End_node" property="endNode" jdbcType="INTEGER" />
     <result column="Start_time" property="startTime" jdbcType="TIMESTAMP" />
     <result column="End_time" property="endTime" jdbcType="TIMESTAMP" />
+    <result column="total_time" property="totalTime" jdbcType="INTEGER" />
     <result column="Money" property="money" jdbcType="REAL" />
     <result column="State" property="state" jdbcType="INTEGER" />
   </resultMap>
@@ -73,8 +75,8 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    id, order_id, openid, Start_rent, End_rent, Start_node, End_node, Start_time, End_time, 
-    Money, State
+    id, order_id, openid, bike_id, Start_rent, End_rent, Start_node, End_node, Start_time, 
+    End_time, total_time, Money, State
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="pbs.business.pojo.po.PbsWechatOrderExample" >
     select
@@ -108,13 +110,15 @@
   </delete>
   <insert id="insert" parameterType="pbs.business.pojo.po.PbsWechatOrder" >
     insert into pbs_wechat_order (id, order_id, openid, 
-      Start_rent, End_rent, Start_node, 
-      End_node, Start_time, End_time, 
-      Money, State)
+      bike_id, Start_rent, End_rent, 
+      Start_node, End_node, Start_time, 
+      End_time, total_time, Money, 
+      State)
     values (#{id,jdbcType=INTEGER}, #{orderId,jdbcType=BIGINT}, #{openid,jdbcType=VARCHAR}, 
-      #{startRent,jdbcType=INTEGER}, #{endRent,jdbcType=INTEGER}, #{startNode,jdbcType=INTEGER}, 
-      #{endNode,jdbcType=INTEGER}, #{startTime,jdbcType=TIMESTAMP}, #{endTime,jdbcType=TIMESTAMP}, 
-      #{money,jdbcType=REAL}, #{state,jdbcType=INTEGER})
+      #{bikeId,jdbcType=VARCHAR}, #{startRent,jdbcType=INTEGER}, #{endRent,jdbcType=INTEGER}, 
+      #{startNode,jdbcType=INTEGER}, #{endNode,jdbcType=INTEGER}, #{startTime,jdbcType=TIMESTAMP}, 
+      #{endTime,jdbcType=TIMESTAMP}, #{totalTime,jdbcType=INTEGER}, #{money,jdbcType=REAL}, 
+      #{state,jdbcType=INTEGER})
   </insert>
   <insert id="insertSelective" parameterType="pbs.business.pojo.po.PbsWechatOrder" >
     insert into pbs_wechat_order
@@ -127,6 +131,9 @@
       </if>
       <if test="openid != null" >
         openid,
+      </if>
+      <if test="bikeId != null" >
+        bike_id,
       </if>
       <if test="startRent != null" >
         Start_rent,
@@ -146,6 +153,9 @@
       <if test="endTime != null" >
         End_time,
       </if>
+      <if test="totalTime != null" >
+        total_time,
+      </if>
       <if test="money != null" >
         Money,
       </if>
@@ -162,6 +172,9 @@
       </if>
       <if test="openid != null" >
         #{openid,jdbcType=VARCHAR},
+      </if>
+      <if test="bikeId != null" >
+        #{bikeId,jdbcType=VARCHAR},
       </if>
       <if test="startRent != null" >
         #{startRent,jdbcType=INTEGER},
@@ -180,6 +193,9 @@
       </if>
       <if test="endTime != null" >
         #{endTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="totalTime != null" >
+        #{totalTime,jdbcType=INTEGER},
       </if>
       <if test="money != null" >
         #{money,jdbcType=REAL},
@@ -207,6 +223,9 @@
       <if test="record.openid != null" >
         openid = #{record.openid,jdbcType=VARCHAR},
       </if>
+      <if test="record.bikeId != null" >
+        bike_id = #{record.bikeId,jdbcType=VARCHAR},
+      </if>
       <if test="record.startRent != null" >
         Start_rent = #{record.startRent,jdbcType=INTEGER},
       </if>
@@ -225,6 +244,9 @@
       <if test="record.endTime != null" >
         End_time = #{record.endTime,jdbcType=TIMESTAMP},
       </if>
+      <if test="record.totalTime != null" >
+        total_time = #{record.totalTime,jdbcType=INTEGER},
+      </if>
       <if test="record.money != null" >
         Money = #{record.money,jdbcType=REAL},
       </if>
@@ -241,12 +263,14 @@
     set id = #{record.id,jdbcType=INTEGER},
       order_id = #{record.orderId,jdbcType=BIGINT},
       openid = #{record.openid,jdbcType=VARCHAR},
+      bike_id = #{record.bikeId,jdbcType=VARCHAR},
       Start_rent = #{record.startRent,jdbcType=INTEGER},
       End_rent = #{record.endRent,jdbcType=INTEGER},
       Start_node = #{record.startNode,jdbcType=INTEGER},
       End_node = #{record.endNode,jdbcType=INTEGER},
       Start_time = #{record.startTime,jdbcType=TIMESTAMP},
       End_time = #{record.endTime,jdbcType=TIMESTAMP},
+      total_time = #{record.totalTime,jdbcType=INTEGER},
       Money = #{record.money,jdbcType=REAL},
       State = #{record.state,jdbcType=INTEGER}
     <if test="_parameter != null" >
@@ -261,6 +285,9 @@
       </if>
       <if test="openid != null" >
         openid = #{openid,jdbcType=VARCHAR},
+      </if>
+      <if test="bikeId != null" >
+        bike_id = #{bikeId,jdbcType=VARCHAR},
       </if>
       <if test="startRent != null" >
         Start_rent = #{startRent,jdbcType=INTEGER},
@@ -280,6 +307,9 @@
       <if test="endTime != null" >
         End_time = #{endTime,jdbcType=TIMESTAMP},
       </if>
+      <if test="totalTime != null" >
+        total_time = #{totalTime,jdbcType=INTEGER},
+      </if>
       <if test="money != null" >
         Money = #{money,jdbcType=REAL},
       </if>
@@ -293,12 +323,14 @@
     update pbs_wechat_order
     set order_id = #{orderId,jdbcType=BIGINT},
       openid = #{openid,jdbcType=VARCHAR},
+      bike_id = #{bikeId,jdbcType=VARCHAR},
       Start_rent = #{startRent,jdbcType=INTEGER},
       End_rent = #{endRent,jdbcType=INTEGER},
       Start_node = #{startNode,jdbcType=INTEGER},
       End_node = #{endNode,jdbcType=INTEGER},
       Start_time = #{startTime,jdbcType=TIMESTAMP},
       End_time = #{endTime,jdbcType=TIMESTAMP},
+      total_time = #{totalTime,jdbcType=INTEGER},
       Money = #{money,jdbcType=REAL},
       State = #{state,jdbcType=INTEGER}
     where id = #{id,jdbcType=INTEGER}

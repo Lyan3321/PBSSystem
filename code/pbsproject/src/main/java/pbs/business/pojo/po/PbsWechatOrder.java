@@ -9,6 +9,8 @@ public class PbsWechatOrder {
 
     private String openid;
 
+    private String bikeId;
+
     private Integer startRent;
 
     private Integer endRent;
@@ -20,6 +22,8 @@ public class PbsWechatOrder {
     private String startTime;
 
     private String endTime;
+
+    private Integer totalTime;
 
     private Float money;
 
@@ -47,6 +51,14 @@ public class PbsWechatOrder {
 
     public void setOpenid(String openid) {
         this.openid = openid == null ? null : openid.trim();
+    }
+
+    public String getBikeId() {
+        return bikeId;
+    }
+
+    public void setBikeId(String bikeId) {
+        this.bikeId = bikeId == null ? null : bikeId.trim();
     }
 
     public Integer getStartRent() {
@@ -85,8 +97,8 @@ public class PbsWechatOrder {
         return startTime;
     }
 
-    public void setStartTime(String string) {
-        this.startTime = string;
+    public void setStartTime(String startTime) {
+        this.startTime = startTime;
     }
 
     public String getEndTime() {
@@ -95,6 +107,14 @@ public class PbsWechatOrder {
 
     public void setEndTime(String endTime) {
         this.endTime = endTime;
+    }
+
+    public Integer getTotalTime() {
+        return totalTime;
+    }
+
+    public void setTotalTime(Integer totalTime) {
+        this.totalTime = totalTime;
     }
 
     public Float getMoney() {

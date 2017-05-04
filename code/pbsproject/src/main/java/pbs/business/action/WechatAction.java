@@ -64,6 +64,11 @@ public class WechatAction {
 		return "/business/wechat/mine";
 	}
 	
+	@RequestMapping("wex5")
+	public String wex5(){
+		return "/business/wechat/map";
+	}
+	
 	@RequestMapping("/wechatconfig")
 	public @ResponseBody Message JSSDK_config(@RequestParam(value = "url",required = true) String url){
 		try {
@@ -290,9 +295,16 @@ public class WechatAction {
 	}
 	
 	//注册结果反馈
-	@RequestMapping("register_result")
+	@RequestMapping("/register_result")
 	public @ResponseBody SubmitResultInfo register_result(String tel) throws Exception{
 		wechatService.register(tel);
+		return ResultUtil.createSubmitResult(ResultUtil.createSuccess(Config.MESSAGE, 906, null));
+	}
+	
+	//结束骑行，自行车入桩
+	@RequestMapping("/riding_complete")
+	public @ResponseBody SubmitResultInfo ridingComplete(String bikeid,String nodeid)throws Exception{
+		wechatService.completeOrder(bikeid, Integer.valueOf(nodeid));
 		return ResultUtil.createSubmitResult(ResultUtil.createSuccess(Config.MESSAGE, 906, null));
 	}
 }

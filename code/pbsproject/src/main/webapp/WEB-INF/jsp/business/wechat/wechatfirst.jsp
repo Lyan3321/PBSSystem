@@ -284,6 +284,7 @@ var params;
 			infoWindow.close();
 			$('#mes').show();
 			time();
+			//完成骑行
 			$('#btn').click(function(){
 				$('#mes').hide();
 				walking.clear();

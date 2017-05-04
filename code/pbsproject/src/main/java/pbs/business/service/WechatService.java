@@ -13,4 +13,6 @@ public interface WechatService {
 	public void register(String tel)throws Exception;
 	
 	public void updateBikeInfo(String openid,String bikeid)throws Exception;
+	
+	public void completeOrder(String bikeid,int nodeid)throws Exception;
 }

@@ -295,6 +295,76 @@ public class PbsWechatOrderExample {
             return (Criteria) this;
         }
 
+        public Criteria andBikeIdIsNull() {
+            addCriterion("bike_id is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andBikeIdIsNotNull() {
+            addCriterion("bike_id is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andBikeIdEqualTo(String value) {
+            addCriterion("bike_id =", value, "bikeId");
+            return (Criteria) this;
+        }
+
+        public Criteria andBikeIdNotEqualTo(String value) {
+            addCriterion("bike_id <>", value, "bikeId");
+            return (Criteria) this;
+        }
+
+        public Criteria andBikeIdGreaterThan(String value) {
+            addCriterion("bike_id >", value, "bikeId");
+            return (Criteria) this;
+        }
+
+        public Criteria andBikeIdGreaterThanOrEqualTo(String value) {
+            addCriterion("bike_id >=", value, "bikeId");
+            return (Criteria) this;
+        }
+
+        public Criteria andBikeIdLessThan(String value) {
+            addCriterion("bike_id <", value, "bikeId");
+            return (Criteria) this;
+        }
+
+        public Criteria andBikeIdLessThanOrEqualTo(String value) {
+            addCriterion("bike_id <=", value, "bikeId");
+            return (Criteria) this;
+        }
+
+        public Criteria andBikeIdLike(String value) {
+            addCriterion("bike_id like", value, "bikeId");
+            return (Criteria) this;
+        }
+
+        public Criteria andBikeIdNotLike(String value) {
+            addCriterion("bike_id not like", value, "bikeId");
+            return (Criteria) this;
+        }
+
+        public Criteria andBikeIdIn(List<String> values) {
+            addCriterion("bike_id in", values, "bikeId");
+            return (Criteria) this;
+        }
+
+        public Criteria andBikeIdNotIn(List<String> values) {
+            addCriterion("bike_id not in", values, "bikeId");
+            return (Criteria) this;
+        }
+
+        public Criteria andBikeIdBetween(String value1, String value2) {
+            addCriterion("bike_id between", value1, value2, "bikeId");
+            return (Criteria) this;
+        }
+
+        public Criteria andBikeIdNotBetween(String value1, String value2) {
+            addCriterion("bike_id not between", value1, value2, "bikeId");
+            return (Criteria) this;
+        }
+
         public Criteria andStartRentIsNull() {
             addCriterion("Start_rent is null");
             return (Criteria) this;
@@ -652,6 +722,66 @@ public class PbsWechatOrderExample {
 
         public Criteria andEndTimeNotBetween(Date value1, Date value2) {
             addCriterion("End_time not between", value1, value2, "endTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andTotalTimeIsNull() {
+            addCriterion("total_time is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andTotalTimeIsNotNull() {
+            addCriterion("total_time is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andTotalTimeEqualTo(Integer value) {
+            addCriterion("total_time =", value, "totalTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andTotalTimeNotEqualTo(Integer value) {
+            addCriterion("total_time <>", value, "totalTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andTotalTimeGreaterThan(Integer value) {
+            addCriterion("total_time >", value, "totalTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andTotalTimeGreaterThanOrEqualTo(Integer value) {
+            addCriterion("total_time >=", value, "totalTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andTotalTimeLessThan(Integer value) {
+            addCriterion("total_time <", value, "totalTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andTotalTimeLessThanOrEqualTo(Integer value) {
+            addCriterion("total_time <=", value, "totalTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andTotalTimeIn(List<Integer> values) {
+            addCriterion("total_time in", values, "totalTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andTotalTimeNotIn(List<Integer> values) {
+            addCriterion("total_time not in", values, "totalTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andTotalTimeBetween(Integer value1, Integer value2) {
+            addCriterion("total_time between", value1, value2, "totalTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andTotalTimeNotBetween(Integer value1, Integer value2) {
+            addCriterion("total_time not between", value1, value2, "totalTime");
             return (Criteria) this;
         }
 
